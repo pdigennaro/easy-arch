@@ -43,6 +43,9 @@ else
 
 fi
 
+echo Insert your name, please
+read current_name
+
 echo Insert your email, please
 read email
 
@@ -79,6 +82,9 @@ if "$BLUETOOTH"; then
 fi
 
 git config --global core.editor "vim"
+git config --global user.email "$current_name"
+git config --global user.name "$email"
+
 sudo archlinux-java set java-17-openjdk
 
 wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
