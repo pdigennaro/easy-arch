@@ -61,6 +61,9 @@ sudo pacman -S --needed ntp zim libreoffice-fresh r rhythmbox filezilla uget qbi
 							jre17-openjdk-headless jre17-openjdk jdk17-openjdk openjdk17-doc texstudio texmaker texlive-most ntp ufw wget alacarte cups cups-pdf simple-scan alsa-utils pulseaudio pavucontrol \
 							pulseaudio-alsa usbutils simple-scan cups cups-pdf docker xfce4-whiskermenu-plugin thunderbird papirus-icon-theme gvfs ntfs-3g firefox chromium jq \
 							virtualbox audacity godot
+							
+sudo systemctl enable lightdm
+sudo systemctl enable NetworkManager
 
 sudo usermod -aG docker ${USER}
 
@@ -74,7 +77,6 @@ sudo timedatectl set-ntp true
 sudo systemctl start ntpd && sudo systemctl enable ntpd
 sudo ntpq -p
 
-sudo pacman -S ufw
 sudo ufw enable
 
 sudo systemctl enable cups.service
@@ -113,6 +115,7 @@ cat ~/.ssh/id_ed25519.pub
 # snap support
 git clone https://aur.archlinux.org/snapd.git
 cd snapd
+makepkg -si
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo systemctl enable --now snapd.apparmor
