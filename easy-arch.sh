@@ -124,6 +124,10 @@ echo "Time sleep of 60 seconds to let the snapd service start..."
 sleep 60
 
 # install snap packages
+sudo snap install hello-world
+sudo snap install spotify
+sudo snap install postman
+sudo snap install krita
 sudo snap install rider --classic
 sudo snap install pycharm-community --classic
 sudo snap install clion --classic
@@ -132,6 +136,7 @@ sudo snap install code --classic
 sudo snap install codium --classic
 sudo snap install telegram-desktop
 sudo snap install flutter --classic
+sudo snap install sublime-text --classic
 #flutter sdk-path
 #flutter config --no-analytics
 #flutter doctor
