@@ -60,7 +60,7 @@ sudo pacman -S --needed ntp zim libreoffice-fresh r rhythmbox filezilla uget qbi
 							lightdm-gtk-greeter-settings capitaine-cursors arc-gtk-theme xdg-user-dirs-gtk devtools git jre-openjdk-headless jre-openjdk jdk-openjdk openjdk-doc \
 							jre17-openjdk-headless jre17-openjdk jdk17-openjdk openjdk17-doc texstudio texmaker texlive-most ntp ufw wget alacarte cups cups-pdf simple-scan alsa-utils pulseaudio pavucontrol \
 							pulseaudio-alsa usbutils simple-scan cups cups-pdf docker xfce4-whiskermenu-plugin thunderbird papirus-icon-theme gvfs nfts-3g firefox chromium jq \
-							virtualbox audacity
+							virtualbox audacity godot
 
 sudo usermod -aG docker ${USER}
 
@@ -147,6 +147,25 @@ wget $ECLIPSE_LINK
 tar zxvf eclipse*.tar.gz
 sudo mv ./eclipse/ /opt/eclipse
 
-wget $GODOT_LINK
-unzip Godot_*.zip
-mv ./Godot_*.x86_64 $BINS_FOLDER/Godot_latest.x86_64
+echo "[Desktop Entry]
+Name=Android Studio
+Exec=/opt/android/studio/bin/studio.sh
+Comment=The official IDE for Android
+Terminal=false
+Icon=/opt/android/studio/bin/studio.png
+Type=Application" > android-studio.desktop
+
+echo "[Desktop Entry]
+Name=Eclipse
+Exec=/opt/eclipse/eclipse
+Comment=The legacy Java IDE
+Terminal=false
+Icon=/opt/eclipse/icon.xpm
+Type=Application" > eclipse.desktop
+
+echo "[Desktop Entry]
+Name=Github desktop
+Exec=$BINS_FOLDER/Github_desktop_latest.AppImage
+Comment=Unoffocial fork for Linux
+Terminal=false
+Type=Application" > github-desktop.desktop
