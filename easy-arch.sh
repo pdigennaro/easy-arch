@@ -188,7 +188,7 @@ dotnet tool install --global dotnet-ef
 
 # cool bash + some path exports
 echo "
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+if [ \$TILIX_ID ] || [ \$VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
 
@@ -200,18 +200,18 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 # User specific aliases and functions
 # color names for readibility
-reset=$(tput sgr0)
-bold=$(tput bold)
-black=$(tput setaf 0)
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-dark_green=$(tput setaf 76)
-yellow=$(tput setaf 3)
-blue=$(tput setaf 4)
-magenta=$(tput setaf 5)
-cyan=$(tput setaf 6)
-white=$(tput setaf 7)
-aqua=$(tput setaf 51)
+reset=\$(tput sgr0)
+bold=\$(tput bold)
+black=\$(tput setaf 0)
+red=\$(tput setaf 1)
+green=\$(tput setaf 2)
+dark_green=\$(tput setaf 76)
+yellow=\$(tput setaf 3)
+blue=\$(tput setaf 4)
+magenta=\$(tput setaf 5)
+cyan=\$(tput setaf 6)
+white=\$(tput setaf 7)
+aqua=\$(tput setaf 51)
 user_color=\$dark_green
 [ \"\$UID\" -eq 0 ] && { user_color=\$red; }
 PS1='\[\$reset\][\[\033[01;34m\]\A\[\$reset\]\[\033[01;32m\] \u@\h{\[\$green\]#\l\[\$user_color\]}\
@@ -221,14 +221,14 @@ PS1='\[\$reset\][\[\033[01;34m\]\A\[\$reset\]\[\033[01;32m\] \u@\h{\[\$green\]#\
 #(master u=), u= is the upstream!
 
 ANDROID_BASE=/opt/android/sdks
-ANDROID_PLATFORM_TOOLS=$ANDROID_BASE/platform-tools
-ANDROID_TOOLS=$ANDROID_BASE/tools
-ANDROID_NDK=$ANDROID_BASE/ndk/25.2.9519653
+ANDROID_PLATFORM_TOOLS=\$ANDROID_BASE/platform-tools
+ANDROID_TOOLS=\$ANDROID_BASE/tools
+ANDROID_NDK=\$ANDROID_BASE/ndk/25.2.9519653
 
-export DOTNET_ROOT=$HOME/.dotnet
+export DOTNET_ROOT=\$HOME/.dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$(${DOTNET_ROOT}/dotnet --version)/Sdks
+export MSBuildSDKsPath=\$DOTNET_ROOT/sdk/\$(\${DOTNET_ROOT}/dotnet --version)/Sdks
 
-PATH=$PATH:`flutter sdk-path`:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:$ANDROID_NDK:$DOTNET_ROOT
+PATH=\$PATH:\`flutter sdk-path\`:\$ANDROID_TOOLS:\$ANDROID_PLATFORM_TOOLS:\$ANDROID_NDK:\$DOTNET_ROOT
 export PATH
 " >> ~/.bashrc
