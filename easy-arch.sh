@@ -137,7 +137,7 @@ cd bins
 
 BINS_FOLDER=$(pwd)
 
-wget $GITHUB_DESKTOP_LINK -o Github_desktop_latest.appimage
+wget $GITHUB_DESKTOP_LINK -O Github_desktop_latest.appimage
 cd ~ 
 sudo mkdir /opt/android
 sudo chown -R $USER /opt/android
