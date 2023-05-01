@@ -1,5 +1,6 @@
 #!/bin/sh
 
+#use https://t.ly/VN1Q
 GITHUB_DESKTOP_LINK=https://github.com/shiftkey/desktop/releases/download/release-3.2.1-linux1/GitHubDesktop-linux-3.2.1-linux1.AppImage
 ANDROID_STUDIO_LINK=https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2022.2.1.18/android-studio-2022.2.1.18-linux.tar.gz
 ECLIPSE_LINK=https://mirror.dogado.de/eclipse/technology/epp/downloads/release/2023-03/R/eclipse-jee-2023-03-R-linux-gtk-x86_64.tar.gz
@@ -115,6 +116,7 @@ git clone https://aur.archlinux.org/snapd.git
 cd snapd
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
+sudo systemctl enable --now snapd.apparmor
 
 # install snap packages
 sudo snap install rider --classic
@@ -126,6 +128,8 @@ sudo snap install codium --classic
 sudo snap install telegram-desktop
 sudo snap install flutter --classic
 flutter sdk-path
+flutter config --no-analytics
+flutter doctor
 
 # some custom software
 cd ~
@@ -169,3 +173,56 @@ Exec=$BINS_FOLDER/Github_desktop_latest.AppImage
 Comment=Unoffocial fork for Linux
 Terminal=false
 Type=Application" > github-desktop.desktop
+
+chmod +x *.desktop
+mv *.desktop ~/.local/share/applications/
+
+dotnet tool install --global dotnet-dev-certs
+dotnet tool install --global dotnet-watch
+dotnet tool install --global dotnet-ef
+
+# cool bash + some path exports
+echo "
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+
+source /usr/share/git/completion/git-completion.bash
+source /usr/share/git/completion/git-prompt.sh
+
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+
+# User specific aliases and functions
+# color names for readibility
+reset=$(tput sgr0)
+bold=$(tput bold)
+black=$(tput setaf 0)
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+dark_green=$(tput setaf 76)
+yellow=$(tput setaf 3)
+blue=$(tput setaf 4)
+magenta=$(tput setaf 5)
+cyan=$(tput setaf 6)
+white=$(tput setaf 7)
+aqua=$(tput setaf 51)
+user_color=\$dark_green
+[ \"\$UID\" -eq 0 ] && { user_color=\$red; }
+PS1='\[\$reset\][\[\033[01;34m\]\A\[\$reset\]\[\033[01;32m\] \u@\h{\[\$green\]#\l\[\$user_color\]}\
+\[\$white\]:\[\$aqua\]\w\[\$reset\]\[\$white\]\[\033[33m\]\$(declare -F __git_ps1 &>/dev/null && __git_ps1 \"(%s)\")\[\033[00m\]\
+]\\\\$\[\$reset\] '
+
+#(master u=), u= is the upstream!
+
+ANDROID_BASE=/opt/android/sdks
+ANDROID_TOOLS=$ANDROID_BASE/platform-tools
+ANDROID_NDK=$ANDROID_BASE/ndk/25.2.9519653
+
+export DOTNET_ROOT=$HOME/.dotnet
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$(${DOTNET_ROOT}/dotnet --version)/Sdks
+
+PATH=$PATH:`flutter sdk-path`:$ANDROID_TOOLS:$ANDROID_NDK:$DOTNET_ROOT
+export PATH
+" >> ~/.bashrc
