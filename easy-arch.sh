@@ -179,6 +179,9 @@ Comment=Unoffocial fork for Linux
 Terminal=false
 Type=Application" > github-desktop.desktop
 
+# here maybe the folder still doesn't exist!
+mkdir -p ~/.local/share/applications/
+
 chmod +x *.desktop
 mv *.desktop ~/.local/share/applications/
 
