@@ -120,6 +120,9 @@ sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo systemctl enable --now snapd.apparmor
 
+echo "Time sleep of 60 seconds to let the snapd service start..."
+sleep 60
+
 # install snap packages
 sudo snap install rider --classic
 sudo snap install pycharm-community --classic
