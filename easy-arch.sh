@@ -132,9 +132,9 @@ sudo snap install code --classic
 sudo snap install codium --classic
 sudo snap install telegram-desktop
 sudo snap install flutter --classic
-flutter sdk-path
-flutter config --no-analytics
-flutter doctor
+#flutter sdk-path
+#flutter config --no-analytics
+#flutter doctor
 
 # some custom software
 cd ~
@@ -144,6 +144,8 @@ cd bins
 BINS_FOLDER=$(pwd)
 
 wget $GITHUB_DESKTOP_LINK -O Github_desktop_latest.appimage
+chmod +x ./Github_desktop_latest.appimage
+
 cd ~ 
 sudo mkdir /opt/android
 sudo chown -R $USER /opt/android
@@ -189,7 +191,7 @@ dotnet tool install --global dotnet-dev-certs
 dotnet tool install --global dotnet-watch
 dotnet tool install --global dotnet-ef
 
-git clone git@github.com:vinceliuice/Matcha-gtk-theme.git
+git clone https://github.com/vinceliuice/Matcha-gtk-theme.git
 cd Matcha-gtk-theme/
 ./install.sh
 
