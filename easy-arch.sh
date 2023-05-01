@@ -4,7 +4,6 @@
 GITHUB_DESKTOP_LINK=https://github.com/shiftkey/desktop/releases/download/release-3.2.1-linux1/GitHubDesktop-linux-3.2.1-linux1.AppImage
 ANDROID_STUDIO_LINK=https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2022.2.1.18/android-studio-2022.2.1.18-linux.tar.gz
 ECLIPSE_LINK=https://mirror.dogado.de/eclipse/technology/epp/downloads/release/2023-03/R/eclipse-jee-2023-03-R-linux-gtk-x86_64.tar.gz
-GODOT_LINK=https://github.com/godotengine/godot/releases/download/4.0.2-stable/Godot_v4.0.2-stable_linux.x86_64.zip
 
 echo "
  _______  _______  _______             _______  _______  _______
@@ -216,13 +215,14 @@ PS1='\[\$reset\][\[\033[01;34m\]\A\[\$reset\]\[\033[01;32m\] \u@\h{\[\$green\]#\
 #(master u=), u= is the upstream!
 
 ANDROID_BASE=/opt/android/sdks
-ANDROID_TOOLS=$ANDROID_BASE/platform-tools
+ANDROID_PLATFORM_TOOLS=$ANDROID_BASE/platform-tools
+ANDROID_TOOLS=$ANDROID_BASE/tools
 ANDROID_NDK=$ANDROID_BASE/ndk/25.2.9519653
 
 export DOTNET_ROOT=$HOME/.dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$(${DOTNET_ROOT}/dotnet --version)/Sdks
 
-PATH=$PATH:`flutter sdk-path`:$ANDROID_TOOLS:$ANDROID_NDK:$DOTNET_ROOT
+PATH=$PATH:`flutter sdk-path`:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:$ANDROID_NDK:$DOTNET_ROOT
 export PATH
 " >> ~/.bashrc
