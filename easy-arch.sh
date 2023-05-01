@@ -162,7 +162,7 @@ Exec=/opt/android/studio/bin/studio.sh
 Comment=The official IDE for Android
 Terminal=false
 Icon=/opt/android/studio/bin/studio.png
-Type=Application" > android-studio.desktop
+Type=Application" > Android-studio.desktop
 
 echo "[Desktop Entry]
 Name=Eclipse
@@ -170,14 +170,14 @@ Exec=/opt/eclipse/eclipse
 Comment=The legacy Java IDE
 Terminal=false
 Icon=/opt/eclipse/icon.xpm
-Type=Application" > eclipse.desktop
+Type=Application" > Eclipse.desktop
 
 echo "[Desktop Entry]
 Name=Github desktop
-Exec=$BINS_FOLDER/Github_desktop_latest.AppImage
+Exec=$BINS_FOLDER/Github_desktop_latest.appimage
 Comment=Unoffocial fork for Linux
 Terminal=false
-Type=Application" > github-desktop.desktop
+Type=Application" > Github-desktop.desktop
 
 # here maybe the folder still doesn't exist!
 mkdir -p ~/.local/share/applications/
