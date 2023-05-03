@@ -18,7 +18,7 @@ echo "
 (_______/|/     \|\_______)   \_/     |/     \||/   \__/(_______/
 "
 
-VER=0.1a
+VER=1.0a
 echo "Easy Arc script v. $VER"
 
 if [ $# -eq 0 ]; then
