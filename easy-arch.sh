@@ -1,9 +1,9 @@
 #!/bin/sh
 
 #use https://t.ly/VN1Q
-GITHUB_DESKTOP_LINK=https://github.com/shiftkey/desktop/releases/download/release-3.2.1-linux1/GitHubDesktop-linux-3.2.1-linux1.AppImage
-ANDROID_STUDIO_LINK=https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2022.2.1.18/android-studio-2022.2.1.18-linux.tar.gz
-ECLIPSE_LINK=https://mirror.dogado.de/eclipse/technology/epp/downloads/release/2023-03/R/eclipse-jee-2023-03-R-linux-gtk-x86_64.tar.gz
+GITHUB_DESKTOP_LINK=https://github.com/shiftkey/desktop/releases/download/release-3.2.7-linux2/GitHubDesktop-linux-x86_64-3.2.7-linux2.AppImage
+ANDROID_STUDIO_LINK=https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2022.3.1.18/android-studio-2022.3.1.18-linux.tar.gz
+ECLIPSE_LINK=https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2023-06/R/eclipse-jee-2023-06-R-linux-gtk-x86_64.tar.gz
 
 echo "
  _______  _______  _______             _______  _______  _______
@@ -58,7 +58,7 @@ read email
 sudo pacman -S --needed ntp zim libreoffice-fresh r rhythmbox filezilla uget qbittorrent vlc geany p7zip gimp cheese exfat-utils fuse-exfat gparted conky plank qtox xclip \
 							python-pip tk tilix meld redshift vulkan-tools cmake ninja clang blender mariadb nginx xorg xfce4 xfce4-goodies file-roller leafpad galculator lightdm lightdm-gtk-greeter \
 							lightdm-gtk-greeter-settings capitaine-cursors arc-gtk-theme xdg-user-dirs-gtk devtools git jre-openjdk-headless jre-openjdk jdk-openjdk openjdk-doc \
-							jre17-openjdk-headless jre17-openjdk jdk17-openjdk openjdk17-doc texstudio texmaker texlive-most ntp ufw wget alacarte cups cups-pdf simple-scan alsa-utils pulseaudio pavucontrol \
+							jre17-openjdk-headless jre17-openjdk jdk17-openjdk openjdk17-doc texstudio texmaker texlive ntp ufw wget alacarte cups cups-pdf simple-scan alsa-utils pulseaudio pavucontrol \
 							pulseaudio-alsa usbutils simple-scan cups cups-pdf docker xfce4-whiskermenu-plugin thunderbird papirus-icon-theme gvfs ntfs-3g firefox chromium jq \
 							virtualbox audacity godot maxima qt5ct qt6ct noto-fonts cantarell-fonts kvantum engrampa openssl-1.1 cpio flatpak flatpak-builder keepass
 							
