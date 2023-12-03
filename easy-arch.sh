@@ -18,7 +18,7 @@ echo "
 (_______/|/     \|\_______)   \_/     |/     \||/   \__/(_______/
 "
 
-VER=1.0a
+VER=2.0a
 echo "Easy Arc script v. $VER"
 
 if [ $# -eq 0 ]; then
@@ -87,7 +87,7 @@ sudo systemctl enable cups.service
 pip install rangehttpserver
 
 if "$NVIDIA"; then
-	sudo pacman -S nvidia lib32-nvidia-utils nvidia-settings
+	sudo pacman -S nvidia nvidia-utils nvidia-settings
 fi 
 
 if "$BLUETOOTH"; then
@@ -115,38 +115,28 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 cat ~/.ssh/id_ed25519.pub
 
-# snap support
-git clone https://aur.archlinux.org/snapd.git
-cd snapd
-makepkg -si
-sudo systemctl enable --now snapd.socket
-sudo ln -s /var/lib/snapd/snap /snap
-sudo systemctl enable --now snapd.apparmor
-
-echo "Time sleep of 60 seconds to let the snapd service start..."
-sleep 60
-
-# install snap packages
-sudo snap install hello-world
-
-# install unity-hub
+# install flatpaks
 flatpak install flathub com.unity.UnityHub
-
-sudo snap install spotify
-sudo snap install postman
-sudo snap install krita
-sudo snap install rider --classic
-sudo snap install pycharm-community --classic
-sudo snap install clion --classic
-sudo snap install intellij-idea-community --classic
-sudo snap install code --classic
-sudo snap install codium --classic
-sudo snap install telegram-desktop
-sudo snap install flutter --classic
-sudo snap install sublime-text --classic
-#flutter sdk-path
-#flutter config --no-analytics
-#flutter doctor
+flatpak install flathub com.spotify.Client
+flatpak install flathub com.getpostman.Postman
+flatpak install flathub com.jetbrains.Rider
+flatpak install flathub com.jetbrains.PyCharm-Community
+flatpak install flathub com.jetbrains.PyCharm-Professional
+flatpak install flathub com.jetbrains.IntelliJ-IDEA-Community
+flatpak install flathub com.jetbrains.IntelliJ-IDEA-Ultimate
+flatpak install flathub com.jetbrains.CLion
+flatpak install flathub com.jetbrains.WebStorm
+flatpak install flathub org.telegram.desktop
+flatpak install flathub com.visualstudio.code
+flatpak install flathub com.vscodium.codium
+flatpak install flathub com.sublimetext.three
+flatpak install flathub com.sublimemerge.App
+flatpak install flathub com.spotify.Client
+flatpak install flathub com.pokemmo.PokeMMO
+flatpak install flathub org.godotengine.Godot
+flatpak install flathub org.kde.krita
+flatpak install flathub com.google.Chrome
+flatpak install flathub com.google.EarthPro
 
 # some custom software
 cd ~
