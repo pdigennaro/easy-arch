@@ -1,6 +1,6 @@
 500 MiB, fat32, /boot/efi, boot flag
 
-Arch Linux 
+# Arch Linux 
 
 localectl list-keymaps
 loadkeys it
@@ -8,43 +8,50 @@ loadkeys it
 ip a # to check connectivity
 ip link
 
-# to connect to a WIFI network
+## to connect to a WIFI network
 iwctl
 device list
 station device scan
 station device get-networks
 station device connect SSID
 
-# create partitions
+## create partitions
 fdisk -l
 or: lsblk
 cfdisk /dev/sda
 
-# format
+## format
 mkfs.ext4 /dev/sda1
+
 mkfs.ext4 /dev/sda2
+
 mkswap /dev/sda3
+
 swapon /dev/sda3
 
-#for the efi partition:
+### for the efi partition:
 (after creating a 500M partition)
 mkfs.fat -F32 /dev/sda1
 
-# ROOT PARTITION
+## ROOT PARTITION
 mount /dev/root_partition /mnt
 
-# SEPARATE HOME
+## SEPARATE HOME
 mkdir /mnt/home
 mount /dev/sda3 /mnt/home
 
-## EFI ##
+## EFI
 mkdir -p /mnt/boot/EFI
 mount /dev/sda1 /mnt/boot/EFI
 
 pacstrap -K /mnt base linux linux-firmware base-devel vim nano dhcpcd net-tools grub networkmanager network-manager-applet wireless_tools wpa_supplicant ntfs-3g os-prober efibootmgr dialog mtools dosfstools linux-headers
+
 genfstab -U /mnt >> /mnt/etc/fstab
+
 arch-chroot /mnt
+
 ln -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
+
 hwclock --systohc
 
 ### Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed UTF-8 locales. Generate the locales by running: 
@@ -66,7 +73,7 @@ vim /etc/hosts
 # password for root user
 passwd
 
-# NO SWAP PARTITION
+## NO SWAP PARTITION
 fallocate -l 2GB /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
@@ -89,11 +96,11 @@ reboot
 systemctl start NetworkManager
 systemctl enable NetworkManager
 
-# to connect
+## to connect
 nmtui
 (then activate connection, etc...)
 
-# add new user
+## add new user
 useradd -m -G wheel pietro
 passwd pietro
 
