@@ -3,16 +3,22 @@
 # Arch Linux 
 
 localectl list-keymaps
+
 loadkeys it
 
 ip a # to check connectivity
+
 ip link
 
 ## to connect to a WIFI network
 iwctl
+
 device list
+
 station device scan
+
 station device get-networks
+
 station device connect SSID
 
 ## create partitions
