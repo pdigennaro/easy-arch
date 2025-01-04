@@ -23,7 +23,9 @@ station device connect SSID
 
 ## create partitions
 fdisk -l
+
 or: lsblk
+
 cfdisk /dev/sda
 
 ## format
@@ -44,10 +46,12 @@ mount /dev/root_partition /mnt
 
 ## SEPARATE HOME
 mkdir /mnt/home
+
 mount /dev/sda3 /mnt/home
 
 ## EFI
 mkdir -p /mnt/boot/EFI
+
 mount /dev/sda1 /mnt/boot/EFI
 
 pacstrap -K /mnt base linux linux-firmware base-devel vim nano dhcpcd net-tools grub networkmanager network-manager-applet wireless_tools wpa_supplicant ntfs-3g os-prober efibootmgr dialog mtools dosfstools linux-headers
@@ -81,8 +85,11 @@ passwd
 
 ## NO SWAP PARTITION
 fallocate -l 2GB /swapfile
+
 chmod 600 /swapfile
+
 mkswap /swapfile
+
 swapon /swapfile
 
 add to /etc/fstab
