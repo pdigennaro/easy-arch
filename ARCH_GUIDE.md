@@ -21,6 +21,16 @@ station device get-networks
 
 station device connect SSID
 
+FIXIA
+
+If device or station powered off try:
+
+device or adapter <dev|ada> set-property Powered on;
+
+or
+
+rfkill unblock all
+
 ## create partitions
 fdisk -l
 
