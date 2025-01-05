@@ -43,6 +43,14 @@ mkfs.ext4 /dev/sda1
 
 mkfs.ext4 /dev/sda2
 
+INFO: when formatting pre-existing ext4 partitions, use this:
+
+mkfs.ext4 -E lazy_itable_init=0 /dev/...
+
+otherwise on the very first startup the ext4lazyinit will take a lot of time...
+
+https://superuser.com/questions/1584873/will-long-time-ext4lazyinit-damage-the-drive-why-initializing-inode-tables-in-e
+
 mkswap /dev/sda3
 
 swapon /dev/sda3
