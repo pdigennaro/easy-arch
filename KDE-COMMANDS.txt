@@ -1,0 +1,6 @@
+ARCH LINUX KDE
+
+sudo pacman -S plasma plasma-workspace kde-applications
+
+sudo systemctl enable sddm.service
+sudo systemctl enable NetworkManager.service
