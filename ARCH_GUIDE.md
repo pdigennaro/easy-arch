@@ -57,6 +57,7 @@ swapon /dev/sda3
 
 ### for the efi partition:
 (after creating a 500M partition)
+
 mkfs.fat -F32 /dev/sda1
 
 ## ROOT PARTITION
@@ -82,7 +83,8 @@ ln -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
 hwclock --systohc
 
-### Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed UTF-8 locales. Generate the locales by running: 
+### locales
+Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed UTF-8 locales. Generate the locales by running: 
 locale-gen
 
 vim /etc/locale.conf
@@ -120,11 +122,17 @@ and uncomment: GRUB_DISABLE_OS_PROBER=false
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
+## final steps
 exit
+
 umount -a
+
 reboot
 
+## after rebooting
+
 systemctl start NetworkManager
+
 systemctl enable NetworkManager
 
 ## to connect
