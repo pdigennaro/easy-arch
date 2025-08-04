@@ -9,7 +9,7 @@ sudo systemctl enable NetworkManager.service
 ```
 
 ```
-sudo pacman -S --needed firefox chromium  uget qbittorrent vlc geany p7zip gimp cheese exfat-utils fuse-exfat gparted conky python-pip tk meld  vulkan-tools cmake ninja clang blender godot mariadb nginx devtools jre-openjdk jre17-openjdk jre21-openjdk docker docker-buildx docker-compose podman-desktop texstudio texmaker texlive wget cups cups-pdf simple-scan virtualbox audacity godot maxima cpio flatpak-builder keepass inetutils dbeaver telegram-desktop ntp libreoffice-fresh
+sudo pacman -S --needed firefox chromium  uget qbittorrent vlc geany p7zip gimp cheese exfat-utils fuse-exfat gparted conky python-pip tk meld  vulkan-tools cmake ninja clang blender godot mariadb nginx devtools jdk-openjdk jdk17-openjdk jdk21-openjdk docker docker-buildx docker-compose podman-desktop texstudio texmaker texlive wget cups cups-pdf simple-scan virtualbox audacity godot maxima cpio flatpak-builder keepass inetutils dbeaver telegram-desktop ntp libreoffice-fresh ufw qtcreator
 ```
 
 if running on a notebook:
